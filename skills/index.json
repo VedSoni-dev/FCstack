@@ -1,0 +1,59 @@
+{
+  "version": "0.1.0",
+  "skills": [
+    {
+      "name": "review",
+      "description": "Full startup review through YC's lens — scores your idea, market, product, business model, moat, growth, and team",
+      "file": "review.md",
+      "keywords": ["review", "analyze", "evaluate", "analysis", "startup review", "feedback"]
+    },
+    {
+      "name": "roast",
+      "description": "Brutal PG-style feedback — strips the marketing language and tells you the hard truth",
+      "file": "roast.md",
+      "keywords": ["roast", "brutal", "honest", "hard truth", "paul graham", "pg"]
+    },
+    {
+      "name": "apply",
+      "description": "Interactive YC application builder — walks you through every question, drafts answers from your codebase, stress-tests each one",
+      "file": "apply.md",
+      "keywords": ["apply", "application", "yc app", "yc application", "submit", "form"]
+    },
+    {
+      "name": "interview",
+      "description": "Mock 10-minute YC partner interview — two partners grill you rapid-fire with interruptions and follow-ups, then score you",
+      "file": "interview.md",
+      "keywords": ["interview", "mock", "practice", "partners", "grilling", "simulate"]
+    },
+    {
+      "name": "demo-day",
+      "description": "60-second Demo Day pitch builder — generates a pitch script, scores each section, iterates until investor-ready",
+      "file": "demo-day.md",
+      "keywords": ["pitch", "demo day", "demo", "60 seconds", "investors", "presentation"]
+    },
+    {
+      "name": "office-hours",
+      "description": "Simulated 1-on-1 YC office hours — bring a problem, a partner works through it with you interactively",
+      "file": "office-hours.md",
+      "keywords": ["office hours", "problem", "stuck", "help", "advice", "session", "1-on-1"]
+    },
+    {
+      "name": "metrics",
+      "description": "Find and analyze growth signals in your codebase — analytics, payments, auth, usage patterns",
+      "file": "metrics.md",
+      "keywords": ["metrics", "growth", "numbers", "analytics", "data", "kpi", "north star"]
+    },
+    {
+      "name": "speed-run",
+      "description": "Full YC readiness report — runs review + roast + metrics in sequence and produces an overall readiness score",
+      "file": "speed-run.md",
+      "keywords": ["ready", "readiness", "speed run", "checklist", "pre-flight", "all", "everything"]
+    },
+    {
+      "name": "founders-like-you",
+      "description": "Find YC alumni companies with similar stacks, markets, or problems — surface their pitches, pivots, and growth stories",
+      "file": "founders-like-you.md",
+      "keywords": ["similar", "alumni", "who else", "companies like", "examples", "comparable"]
+    }
+  ]
+}
