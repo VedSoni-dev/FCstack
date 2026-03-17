@@ -1,74 +1,26 @@
-#!/usr/bin/env bash
-set -euo pipefail
+#!/bin/bash
+# /fc — FCstack setup
+# Copies skill files into ~/.claude/skills/
 
-# YCstack setup — installs the /yc skill into Claude Code
-#
-#   ~/.claude/skills/yc → YCstack/yc/   (symlink)
-#   ~/.claude/CLAUDE.md                  (appends YCstack section if missing)
+set -e
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SKILLS_DIR="$HOME/.claude/skills"
-CLAUDE_MD="$HOME/.claude/CLAUDE.md"
-SKILL_SOURCE="$SCRIPT_DIR/yc"
-SKILL_TARGET="$SKILLS_DIR/yc"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-echo "Installing YCstack..."
-
-# Create skills directory if it doesn't exist
-mkdir -p "$SKILLS_DIR"
-
-# Create or update symlink
-if [ -L "$SKILL_TARGET" ]; then
-  echo "  Updating existing symlink..."
-  rm "$SKILL_TARGET"
-elif [ -d "$SKILL_TARGET" ]; then
-  echo "  Removing existing yc skill directory..."
-  rm -rf "$SKILL_TARGET"
-fi
-
-ln -s "$SKILL_SOURCE" "$SKILL_TARGET"
-echo "  Linked: $SKILL_TARGET → $SKILL_SOURCE"
-
-# Append YCstack section to CLAUDE.md if not already present
-if [ -f "$CLAUDE_MD" ]; then
-  if grep -q "YCstack" "$CLAUDE_MD" 2>/dev/null; then
-    echo "  CLAUDE.md already has YCstack section — skipping."
-  else
-    cat >> "$CLAUDE_MD" << 'BLOCK'
-
-# YCstack
-
-Use `/yc` to access YC Copilot — a YC partner in your terminal. It reads your
-codebase and dynamically loads the right skill for what you need: startup review,
-application builder, mock interview, pitch coach, office hours, and more.
-
-Available command: `/yc`
-BLOCK
-    echo "  Updated CLAUDE.md with YCstack section."
-  fi
-else
-  cat > "$CLAUDE_MD" << 'BLOCK'
-# YCstack
-
-Use `/yc` to access YC Copilot — a YC partner in your terminal. It reads your
-codebase and dynamically loads the right skill for what you need: startup review,
-application builder, mock interview, pitch coach, office hours, and more.
-
-Available command: `/yc`
-BLOCK
-  echo "  Created CLAUDE.md with YCstack section."
-fi
+SKILLS=("fc" "fc-apply" "fc-interview" "fc-office-hours" "fc-demo-day")
 
 echo ""
-echo "YCstack installed. Run /yc in any project to get started."
+echo "  /fc — setting up FCstack skills..."
 echo ""
-echo "Available skills (loaded on demand):"
-echo "  review         Full startup analysis with scores"
-echo "  roast          Brutal PG-style feedback"
-echo "  apply          Interactive YC application builder"
-echo "  interview      Mock 10-min partner interview"
-echo "  demo-day       60-second pitch builder"
-echo "  office-hours   1-on-1 partner problem-solving"
-echo "  metrics        Find growth signals in your code"
-echo "  speed-run      Full readiness report"
-echo "  founders-like-you   Find similar YC companies"
+
+for skill in "${SKILLS[@]}"; do
+  mkdir -p "$SKILLS_DIR/$skill"
+  cp "$SCRIPT_DIR/skills/$skill/SKILL.md" "$SKILLS_DIR/$skill/SKILL.md"
+  echo "  → installed /$skill"
+done
+
+echo ""
+echo "  ✓ ${#SKILLS[@]} skills installed"
+echo ""
+echo "  Open any project in Claude Code and run /fc to get started."
+echo ""
