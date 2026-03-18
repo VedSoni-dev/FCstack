@@ -37,12 +37,12 @@ Silently read the codebase (same as /fc — README, package.json, git log, etc.)
 
 Ask the user:
 
-**Question:** "What kind of mentor do you want today?"
+**Question:** "Which mentor do you want for office hours?"
 Options:
-- **Product Coach** — Best for: product decisions, prioritization, "what should I work on next"
-- **Business Strategist** — Best for: business model, competition, fundraising strategy
-- **Growth Expert** — Best for: growth, metrics, user acquisition, retention
-- **Technical Advisor** — Best for: technical architecture, hiring engineers, scaling
+- **Michael Seibel** — Best for: product decisions, prioritization, "what should I work on next"
+- **Dalton Caldwell** — Best for: business model, competition, fundraising strategy
+- **Gustaf Alstromer** — Best for: growth, metrics, user acquisition, retention
+- **Jared Friedman** — Best for: technical architecture, hiring engineers, scaling
 
 ## Step 3: What's Your Problem?
 
